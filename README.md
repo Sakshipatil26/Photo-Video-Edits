@@ -24,6 +24,23 @@ A responsive and user-friendly web application that allows users to **edit photo
 
 ---
 
+## Live Demo
+You can view the live hosted project here:  
+[Photo-Video-Edits Live Site](https://sakshipatil26.github.io/Photo-Video-Edits/)
+
+## Features
+- Photo editing tools including crop, filter, adjust, and retouch.
+- Video editing features like trim, compress, collage, and effects.
+- User authentication with login and signup functionality.
+- Responsive design for accessibility on various devices.
+
+## Technologies Used
+- HTML
+- CSS
+- JavaScript
+- Git & GitHub for version control and hosting
+
+
 ## 🚀 Getting Started
 
 To run the project locally:

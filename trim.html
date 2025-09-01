@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trim Video</title>
+    <link rel="stylesheet" href="trim.css">
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="header">PV Editor</div>
+            <div class="video-container">
+                <div class="left-pane">
+                    <input type="file" id="videoFile" accept="video/*">
+                    <video id="videoPlayer" controls></video>
+                </div>
+                <div class="right-pane">
+                    <div class="trim-text">Trim Video</div>
+                    <div class="time-inputs">
+                        <label for="startTime">Start Time:</label>
+                        <input type="number" id="startTime" step="1">
+                        <label for="endTime">End Time:</label>
+                        <input type="number" id="endTime" step="1">
+                    </div>
+                    <button id="saveButton">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="downloadLink" style="display: none;" download="trimmed_video.mp4">Download Trimmed Video</a>
+
+    <script src="trim.js"></script>
+</body>
+</html>

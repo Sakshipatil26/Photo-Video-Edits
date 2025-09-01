@@ -1,0 +1,118 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #ffffff , #23d2c4);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.project-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.animated-text {
+    animation: slideInFromTop 1s ease both;
+    font-size: 24px;
+}
+
+@keyframes slideInFromTop {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.edit-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.animated-button {
+    animation: bounceIn 1s ease both;
+    padding: 15px 30px;
+    font-size: 20px;
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.logo {
+    width: 200px;
+    /* Adjust the width as needed */
+    height: auto;
+    /* Maintain aspect ratio */
+    margin-top: 20px;
+    /* Add some margin to separate from buttons */
+    animation: pulse 1.5s infinite ease-in-out;
+    /* Add animation */
+    border-radius: 100%;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+button {
+    margin: 0 10px;
+    background: linear-gradient(to bottom, rgb(255, 132, 0), orangered);
+    color:white black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: black;
+    color: linear-gradient(to bottom, rgb(255, 132, 0), orangered);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .animated-text {
+        font-size: 18px;
+    }
+
+    .animated-button {
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+}

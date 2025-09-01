@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Video Editor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #ffffff, #23d2c4);
+ 
+        }
+
+        .editor-container {
+            position: relative;
+            background-color: black;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        #editor-title {
+            position: absolute;
+            top: 10px; /* Adjusted top position */
+            left: 20px;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            font-weight: 500;
+            text-decoration: double;
+            color: white; /* Change color */
+            text-shadow: 2px 2px 4px rgb(255, 255, 255); /* Add text shadow */
+            margin-bottom: 20px; /* Add margin for spacing */
+            background:black;
+        }
+
+        #controls {
+            margin-top: 10px;
+        }
+
+        #controls button {
+            margin-right: 10px;
+        }
+
+        /* Styling for the controls within the black box */
+        #controls button,
+        #controls input[type="range"] {
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 16px;
+            cursor: pointer;
+            margin-right: 10px;
+            outline: none;
+            height: 40px;
+            font-size: 14px;
+            color: black;
+            background: linear-gradient(120deg, #ffa42d 0%, #f35a2f 100%);
+            border: 1px solid black;
+            box-shadow: 0px 2px 4px black;
+        }
+
+        #controls label {
+            color: white;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="editor-container">
+        <h1 id="editor-title">PV Editor</h1>
+        <input type="file" id="video-input" accept="video/*">
+        <video id="video-player" controls></video>
+        <div id="controls">
+            <button id="play-btn">Play</button>
+            <button id="pause-btn">Pause</button>
+            <label for="speed-control">Speed:</label>
+            <input type="range" id="speed-control" min="0.5" max="2" step="0.1" value="1">
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const videoInput = document.getElementById('video-input');
+            const videoPlayer = document.getElementById('video-player');
+            const playBtn = document.getElementById('play-btn');
+            const pauseBtn = document.getElementById('pause-btn');
+            const speedControl = document.getElementById('speed-control');
+
+            videoInput.addEventListener('change', function(event) {
+                const file = event.target.files[0];
+                const url = URL.createObjectURL(file);
+                videoPlayer.src = url;
+            });
+
+            playBtn.addEventListener('click', function() {
+                videoPlayer.play();
+            });
+
+            pauseBtn.addEventListener('click', function() {
+                videoPlayer.pause();
+            });
+
+            speedControl.addEventListener('input', function() {
+                videoPlayer.playbackRate = speedControl.value;
+            });
+        });
+    </script>
+</body>
+</html>

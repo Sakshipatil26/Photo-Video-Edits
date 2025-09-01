@@ -1,0 +1,118 @@
+/* Define animation keyframes */
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Apply animation to .himage */
+.himage.animated {
+  animation-name: slideInFromLeft;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+/* Apply animation to .button */
+.button.animated {
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+/* Existing CSS code */
+body {
+  background: linear-gradient(to bottom, #ffffff, #23d2c4);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  border: 5px solid #23d2c4; /* Add border to the whole page */
+}
+
+h1 {
+  align-items: center;
+  font-size: 48px; /* Adjust font size */
+  color: #333; /* Change color */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add text shadow */
+  margin-bottom: 20px; /* Add margin for spacing */
+}
+
+main {
+  padding: 20px;
+  display: flex;
+  flex-direction: row; /* Change to row */
+  align-items: center;
+  justify-content: center;
+}
+
+.hiteams {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hiteams > div {
+  margin: 0 10px; /* Adjust margin as needed */
+}
+
+.himage {
+  margin-bottom: 20px;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #23d2c4;
+  border-radius: 20px;
+  height: 400px;
+  width: 400px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* Add box shadow */
+}
+
+.htext {
+  padding: 0;
+  margin-bottom: 20%;
+  font-size: 30px;
+}
+
+.button {
+  padding: 8px 16px; /* Reduced padding */
+  font-size: 30px; /* Reduced font size */
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 350px; /* Reduced width */
+  height: 40px; /* Reduced height */
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* Add box shadow */
+}
+
+.button:hover {
+  color: black;
+  background: white;
+}
+
+@media screen and (max-width: 768px) {
+  .hiteams img {
+    max-width: 45%;
+  }
+}

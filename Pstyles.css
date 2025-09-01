@@ -1,0 +1,83 @@
+/* Pstyles.css */
+
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: linear-gradient(to bottom, #ffffff, #23d2c4);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    text-decoration: double;
+    color: #333; /* Change color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add text shadow */
+    margin-bottom: 20px; /* Add margin for spacing */
+    background: #23d2c4;
+    font-size: 48px;
+
+    
+}
+
+
+
+.edit-options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Add some space between rows */
+    margin-bottom: 30px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Add some space between options */
+}
+
+.edit-options a {
+    text-decoration: none;
+    color: #333;
+}
+
+.edit-options img {
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+    box-shadow: 2px 4px 6px black;
+    transition: transform 0.3s ease-in-out;
+    background: linear-gradient(to bottom, rgb(255, 132, 0), orangered);
+}
+
+.edit-options img:hover {
+    transform: scale(1.1);
+}
+
+/* Media queries for responsiveness */
+@media only screen and (max-width: 768px) {
+    .edit-options img {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+
+/* Pstyles.css */
+
+.home-image {
+    position: absolute;
+    top: 20px; /* Adjust the top position as needed */
+    right: 20px; /* Adjust the right position as needed */
+    width: 66px; /* Adjust the width as needed */
+    height: 55px;
+    z-index: 999; /* Ensure it's above other elements */
+    background: #23d2c4;
+}

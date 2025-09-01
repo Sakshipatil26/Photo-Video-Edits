@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - youtube.com/codingnepal -->
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Image Editor in JavaScript | CodingNepal</title>
+  <link rel="stylesheet" href="adjust.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+</head>
+<body>
+<div class="container disable">
+  <h2>PV Editor</h2>
+  <div class="wrapper">
+    <div class="editor-panel">
+      <div class="filter">
+        <label class="title">Adjust</label>
+        <div class="options">
+          <!-- Add new filter buttons here -->
+          <button id="brightness" class="active">Brightness</button>
+          <button id="saturation">Saturation</button>
+          <button id="inversion">Inversion</button>
+          <button id="grayscale">Grayscale</button>
+          <button id="temperature">Temperature</button>
+          <button id="contrast">Contrast</button>
+          <button id="shadow">Shadow</button>
+          <button id="sharpness">Sharpness</button>
+          <button id="clarity">Clarity</button>
+          <button id="vignette">Vignette</button>
+          <button id="vibrance">Vibrance</button>
+        </div>
+      </div>
+      <div class="slider">
+        <div class="filter-info">
+          <p class="name">Brightness</p>
+          <p class="value">100%</p>
+        </div>
+        <input type="range" value="100" min="0" max="200">
+      </div>
+    </div>
+    <div class="preview-img">
+      <!-- Change src to an empty string -->
+      <img src="images\placeholder.svg" alt="preview-img">
+    </div>
+  </div>
+  <div class="controls">
+    <button class="reset-filter">Reset </button>
+    <div class="row"> <!-- Ensure buttons are displayed in a row -->
+      <input type="file" class="file-input" accept="image/*" hidden>
+      <button class="choose-img">Choose Image</button>
+      <button class="save-img">Save Image</button>
+    </div>
+  </div>
+</div>
+
+<script src="adjust.js"></script>
+
+</body>
+</html>

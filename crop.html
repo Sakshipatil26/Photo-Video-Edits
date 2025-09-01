@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop and Adjust</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css">
+    <!-- Include any other CSS files you need -->
+
+    <style>
+        /* Add your custom CSS styles here */
+        body{
+            background: grey;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            background-color: rgb(189, 190, 198);
+        }
+
+        #image-preview {
+            max-width: 100%;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #000000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Crop and Adjust</h1>
+        <input type="file" id="image-input">
+        <br><br>
+        <div>
+            <button id="crop-button" class="btn">Crop</button>
+            <button id="rotate-button" class="btn">Rotate</button>
+            <button id="save-button" class="btn" style="display: none;">Save</button>
+        </div>
+        <br>
+        <img id="image-preview" src="#" alt="Image Preview">
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+    
+    <!-- Include any other script files you need -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var image = document.getElementById('image-preview');
+            var cropper;
+
+            document.getElementById('image-input').addEventListener('change', function (e) {
+                var file = e.target.files[0];
+                var reader = new FileReader();
+
+                reader.onload = function (event) {
+                    image.src = event.target.result;
+                    cropper = new Cropper(image, {
+                        aspectRatio: 16 / 9,
+                        viewMode: 1
+                    });
+                    document.getElementById('save-button').style.display = 'inline-block';
+                };
+
+                reader.readAsDataURL(file);
+            });
+
+            document.getElementById('crop-button').addEventListener('click', function () {
+                var canvas = cropper.getCroppedCanvas();
+                // You can use the cropped canvas for further processing or upload to server
+                // Example: document.body.appendChild(canvas);
+            });
+
+            document.getElementById('rotate-button').addEventListener('click', function () {
+                cropper.rotate(90); // Rotate clockwise by 90 degrees
+            });
+
+            document.getElementById('perspective-button').addEventListener('click', function () {
+                // Apply perspective transformation using PerspectiveTransform.js library
+                var topLeft = [0, 0];
+                var topRight = [cropper.getCropBoxData().width, 0];
+                var bottomLeft = [0, cropper.getCropBoxData().height];
+                var bottomRight = [cropper.getCropBoxData().width, cropper.getCropBoxData().height];
+
+                perspectiveTransform(image, topLeft, topRight, bottomLeft, bottomRight);
+            });
+
+            document.getElementById('save-button').addEventListener('click', function () {
+                var croppedCanvas = cropper.getCroppedCanvas();
+                // Convert the canvas to a data URL
+                var croppedImageDataURL = croppedCanvas.toDataURL("image/png");
+
+                // Create a temporary link element
+                var link = document.createElement('a');
+                link.href = croppedImageDataURL;
+                link.download = 'cropped_image.png';
+                document.body.appendChild(link);
+
+                // Trigger the click event to download the image
+                link.click();
+
+                // Clean up
+                document.body.removeChild(link);
+            });
+        });
+    </script>
+</body>
+</html>

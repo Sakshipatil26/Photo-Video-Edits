@@ -1,0 +1,179 @@
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  display: flex;
+  padding: 10px;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, #ffffff, #23d2c4);
+}
+.container {
+    display: flex;  
+   flex-direction:row;
+   border-radius: 10px;
+   box-shadow: 0 10 20px white;
+   width: 950px;
+   padding: 30px 35px 35px;
+   background:  black;
+   border-radius: 10px;
+   box-shadow: 0 10px 20px black;
+ }
+ 
+ .container h2{
+    margin-top: -8px;
+    font-size: 30px;
+    font-weight: 500;
+    text-decoration: double;
+    color: white; /* Change color */
+    text-shadow: 2px 2px 4px rgb(255, 255, 255); /* Add text shadow */
+    margin-bottom: 20px; /* Add margin for spacing */
+    background:black;
+
+ }
+
+
+#filterStrengthContainer {
+    margin-top: 20px;
+    color: blue;
+}
+#filterStrengthContainer :hover {
+    color: darkblue;
+}
+
+.filterOptions.hidden {
+    display: none;
+    border-color: #fff;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    flex: 1;
+    column-gap: 20px;
+    justify-content: center;
+}
+
+/* Filter buttons container */
+#filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    flex-direction: column;
+   
+}
+
+/* Style for filter buttons */
+#filters button {
+    margin: 5px;
+    padding: 10px 20px;
+    border: 10px;
+    background: linear-gradient(120deg, #ffa42d 0%, #f35a2f 100%);
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 2px 4px black;
+
+
+}
+
+.collumn.buttonContainer{
+    border-color: #fff;
+    color: white;
+    box-shadow: 0px 5px 10px rgb(194, 188, 188);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+}
+
+/* Hover effect for filter buttons */
+#filters button:hover {
+    
+    color: white;
+    background: linear-gradient(120deg, #000000 0%, #f35a2f 100%);
+}
+
+#buttonContainer {
+    text-align: center; /* Center the save button */
+}
+
+#saveButton {
+    background: blue;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+#saveButton:hover {
+    background-color: darkblue; /* Darker green color on hover */
+}
+
+
+#collectionButton {
+    background-color: blue; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#collectionButton:hover {
+    background-color: darkblue;
+}
+
+/* Filter Options CSS */
+.filterOptions {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.filterOptions button {
+    margin: 5px;
+    padding: 5px 10px;
+    border: none;
+    color: white;
+    background: linear-gradient(120deg, #000000 0%, #f35a2f 100%);
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 2px 4px black;
+}
+
+.filterOptions button:hover {
+    background: linear-gradient(120deg, #ffa42d 0%, #f35a2f 100%);
+    color: black;
+}

@@ -1,0 +1,173 @@
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body {
+  display: flex;
+  padding: 10px;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, #ffffff, #23d2c4);
+}
+.container {
+  width: 850px;
+  height: auto;
+  padding: 30px 35px 35px;
+  background: black;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column; /* Changed to column */
+
+}
+.container.disable .editor-panel,
+.container.disable .controls .reset-filter,
+.container.disable .controls .save-img {
+  opacity: 1;
+  pointer-events: none;
+}
+.container h2 {
+  margin-top: -8px;
+  font-size: 30px;
+  font-weight: 500;
+  text-decoration: double;
+  color: white; /* Change color */
+  text-shadow: 2px 2px 4px rgb(255, 255, 255); /* Add text shadow */
+  margin-bottom: 20px; /* Add margin for spacing */
+  background:black;
+}
+.container .wrapper {
+  display: flex;
+  margin: 20px 0;
+  min-height: 335px;
+}
+.wrapper .editor-panel {
+  padding: 15px 20px;
+  width: 400px;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+.editor-panel .title {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: white;
+}
+.editor-panel .options,
+.controls {
+  display: flex;
+  flex-wrap: wrap; /* Added wrap */
+  justify-content: space-between;
+}
+.editor-panel button {
+  outline: none;
+  height: 40px;
+  font-size: 14px;
+  color: black;
+  background: linear-gradient(120deg, #ffa42d 0%, #f35a2f 100%);
+  border-radius: 5px;
+  margin-bottom: 8px;
+  border: 1px solid black;
+  box-shadow: 0px 2px 4px black;
+}
+.editor-panel .filter button {
+  width: calc(100% / 2 - 4px);
+}
+.editor-panel button:hover {
+  background: linear-gradient(120deg, black 0%, #f35a2f 100%);
+  box-shadow: 0px 2px 4px black;
+}
+.filter button.active {
+    margin: 5px;
+    padding: 10px 20px;
+    border: 10px;
+    background: linear-gradient(120deg, #ffa42d 0%, #f35a2f 100%);
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 2px 4px black;
+}
+.filter .slider {
+  margin-top: 20px;
+  color: blue;
+}
+
+.filter .slider:hover {
+  color: darkblue;
+}
+.filter .slider .filter-info {
+  display: flex;
+  color : blue;
+  font-size: 14px;
+  justify-content: space-between;
+}
+.filter .slider input {
+  width: 100%;
+  height: 5px;
+  accent-color: blue;
+}
+.wrapper .preview-img {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-left: 20px;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+}
+.preview-img img {
+  max-width: 550px;
+  max-height: 600px;
+  width: 100%;
+  height:100%;
+  object-fit: contain;
+}
+.controls {
+  display: flex;
+  justify-content: space-between; /* Added */
+  width: 100%; /* Added */
+  margin-top: 10px;
+}
+.controls button {
+  padding: 11px 20px;
+  font-size: 14px;
+  border-radius: 3px;
+  outline: none;
+  color: #fff;
+  cursor: pointer;
+  background: none;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.controls .reset-filter {
+  background: linear-gradient(120deg, #ffa42d 0%, #f35a2f 100%);
+  color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.controls .reset-filter:hover {
+  color: white;
+  background: linear-gradient(120deg, #000000 0%, #f35a2f 100%);
+}
+.controls .choose-img {
+  background: blue;
+  border: 1px solid blue;
+}
+.controls .save-img {
+  background: blue;
+  border: 1px solid blue;
+}
+.controls .save-img:hover {
+  background: darkblue;
+}
+.controls input[type="file"] {
+  display: none;
+}

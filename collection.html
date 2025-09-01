@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection</title>
+    <link rel="stylesheet" href="collection.css">
+</head>
+<body>
+    <h1>Image Collection</h1>
+    <div id="collection" class="collection"></div>
+    <script src="collection.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+const imageUrl = urlParams.get('image');
+
+// Display the image
+const imageContainer = document.getElementById('imageContainer');
+const img = document.createElement('img');
+img.src = imageUrl;
+imageContainer.appendChild(img);
+    </script>
+</body>
+</html>

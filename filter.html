@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Filter</title>
+    <link rel="stylesheet" href="filter.css">
+</head>
+<body>
+    <div class="container">
+        <h2>PV Editor</h2>
+        <div class="column">
+            <div id="filters">
+                <button data-filter="none">None</button>
+                <button data-filter="natural">Natural Filter</button>
+                <button data-filter="warm">Warm Filter</button>
+                <button data-filter="cool">Cool Filter</button>
+                <button data-filter="vivid">Vivid Filter</button>
+                <button data-filter="mono">Mono Filter</button>
+                <button data-filter="colorpop">Colorpop Filter</button>
+                <button data-filter="reset">Reset</button>
+            </div>
+            <!-- Filter Options -->
+            <div id="filterOptions">
+                <!-- Filter options for different filters -->
+                  <!-- Natural Filter Options -->
+            <div id="naturalFilters" class="filterOptions hidden">
+                <button data-filter="fresco">Fresco</button>
+                <button data-filter="belvedere">Belvedere</button>
+                <button data-filter="flint">Flint</button>
+                <button data-filter="luna">Luna</button>
+                <button data-filter="aero">Aero</button>
+                <button data-filter="myst">Myst</button>
+            </div>
+            <!-- Warm Filter Options -->
+            <div id="warmFilters" class="filterOptions hidden">
+                <button data-filter="bali">Bali</button>
+                <button data-filter="capri">Capri</button>
+                <button data-filter="latte">Latte</button>
+                <button data-filter="bronz">Bronz</button>
+                <button data-filter="sandi">Sandi</button>
+                <button data-filter="sangri">Sangri</button>
+            </div>
+            <!-- Cool Filter Options -->
+            <div id="coolFilters" class="filterOptions hidden">
+                <button data-filter="scandi">Scandi</button>
+                <button data-filter="nordic">Nordic</button>
+                <button data-filter="astro">Astro</button>
+                <button data-filter="arctic">Arctic</button>
+                <button data-filter="tundra">Tundra</button>
+            </div>
+            <!-- Vivid Filter Options -->
+            <div id="vividFilters" class="filterOptions hidden">
+                <button data-filter="chroma">Chroma</button>
+                <button data-filter="zeal">Zeal</button>
+                <button data-filter="aria">Aria</button>
+                <button data-filter="stark">Stark</button>
+                <button data-filter="eldar">Eldar</button>
+                <button data-filter="rustiq">Rustiq</button>
+            </div>
+            <!-- Mono Filter Options -->
+            <div id="monoFilters" class="filterOptions hidden">
+                <button data-filter="classic">Classic</button>
+                <button data-filter="ink">Ink</button>
+                <button data-filter="noir">Noir</button>
+                <button data-filter="flim">Flim</button>
+                <button data-filter="newspaper">Newspaper</button>
+                <button data-filter="slate">Slate</button>
+            </div>
+            <!-- Colorpop Filter Options -->
+            <div id="colorpopFilters" class="filterOptions hidden">
+                <button data-filter="outrun">Outrun</button>
+                <button data-filter="heatwave">Heatwave</button>
+                <button data-filter="amethyst">Amethyst</button>
+                <button data-filter="minty">Minty</button>
+                <button data-filter="hibiscus">Hibiscus</button>
+                <button data-filter="poster">Poster</button>
+            </div>
+                <!-- Filter options for different filters -->
+
+            </div>
+            <div id="filterStrengthContainer">
+                <label for="filterStrength">Filter Strength:</label>
+                <input type="range" id="filterStrength" min="0" max="100" value="100">
+            </div>
+        </div>
+        <div class="column">
+            <div id="imageUploadContainer">
+                <label for="imageUpload">Upload Image:</label>
+                <input type="file" id="imageUpload" accept="image/*">
+            </div>
+            <div id="imageDisplayContainer">
+                <img id="imageDisplay" src="images\placeholder.svg" alt="Image">
+            </div>
+            <div id="buttonContainer">
+                <button id="saveButton">Save</button>
+                <button id="collectionButton">Collection</button>
+            </div>
+        </div>
+    </div>
+    <script src="filter.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

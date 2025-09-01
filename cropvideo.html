@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crop and Rotate Video</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" rel="stylesheet">
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, #ffffff, #23d2c4);
+    margin: 0; /* Add margin 0 to reset browser defaults */
+  }
+
+  .video-container {
+    position: relative;
+  }
+
+  .video-box {
+    background-color: black;
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  #video-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+
+  #video-player-container {
+    margin-right: 50px;
+  }
+
+  #video-player {
+    max-width: 480px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: black;
+  }
+
+  #controls {
+    display: flex;
+    flex-direction: column;
+    margin-left : 50px;
+  }
+
+  #controls button {
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    color: black;
+    background: linear-gradient(120deg, #ffa42d 0%, #f35a2f 100%);
+    border-radius: 5px;
+    margin-bottom: 8px;
+    border: 1px solid black;
+    box-shadow: 0px 2px 4px black;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #controls button:hover {
+    background: linear-gradient(120deg, black 0%, #f35a2f 100%);
+    box-shadow: 0px 2px 4px black;
+    color: white;
+  }
+
+  #video-input {
+    display: none;
+  }
+
+  #cropper-container {
+    display: none;
+    width: 200px; /* Adjust width as needed */
+    height: 200px; /* Adjust height as needed */
+  }
+
+  #cropper-image {
+    max-width: 100%;
+  }
+
+  #save-button {
+    background-color: #28a745;
+  }
+
+  #save-button:hover {
+    background-color: #218838;
+  }
+
+  #pv-editor {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 1; /* Ensure it's above other elements */
+    font-size: 24px;
+    font-weight: bold;
+    font-weight: 500;
+    text-decoration: double;
+    color: white; /* Change color */
+    text-shadow: 2px 2px 4px rgb(255, 255, 255); /* Add text shadow */
+    margin-bottom: 20px; /* Add margin for spacing */
+    background:black;
+  }
+
+</style>
+</head>
+<body>
+  
+  <div class="video-container">
+    <div id="pv-editor">PV Editor</div>
+    <div class="video-box">
+      <div id="video-container">
+        <div id="video-player-container">
+          <video id="video-player" controls></video>
+        </div>
+        <div id="controls">
+          <div>
+            <input type="file" accept="video/*" id="video-input">
+            <label for="video-input">
+              <button id="choose-video-button">Choose Video</button>
+            </label>
+            <button id="save-button">Save</button>
+          </div>
+          <button id="rotate-left-button">Rotate Left</button>
+          <button id="rotate-right-button">Rotate Right</button>
+          <button id="rotate-up-button">Rotate Up</button>
+          <button id="rotate-down-button">Rotate Down</button>
+          <button id="crop-button">Crop</button>
+          <button id="reset-button">Reset</button>
+          <div id="cropper-container">
+            <img id="cropper-image" src="" alt="Cropped Part">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+<script>
+    const videoPlayer = document.getElementById('video-player');
+    const videoInput = document.getElementById('video-input');
+    const saveButton = document.getElementById('save-button');
+    const cropButton = document.getElementById('crop-button');
+    const rotateLeftButton = document.getElementById('rotate-left-button');
+    const rotateRightButton = document.getElementById('rotate-right-button');
+    const rotateUpButton = document.getElementById('rotate-up-button');
+    const rotateDownButton = document.getElementById('rotate-down-button');
+    const chooseVideoButton = document.getElementById('choose-video-button');
+    const cropperContainer = document.getElementById('cropper-container');
+    const cropperImage = document.getElementById('cropper-image');
+    const resetButton = document.getElementById('reset-button');
+    let cropper;
+    let currentRotation = 0;
+  
+    chooseVideoButton.addEventListener('click', function() {
+      videoInput.click();
+    });
+  
+    videoInput.addEventListener('change', function() {
+      const file = this.files[0];
+      const url = URL.createObjectURL(file);
+      videoPlayer.src = url;
+    });
+  
+    saveButton.addEventListener('click', function() {
+      downloadCroppedVideo();
+    });
+  
+    cropButton.addEventListener('click', function() {
+      // Implement crop logic here
+      // Example: Use a library like Cropper.js for cropping
+    });
+  
+    rotateLeftButton.addEventListener('click', function() {
+      currentRotation -= 90;
+      videoPlayer.style.transform = `rotate(${currentRotation}deg)`;
+    });
+  
+    rotateRightButton.addEventListener('click', function() {
+      currentRotation += 90;
+      videoPlayer.style.transform = `rotate(${currentRotation}deg)`;
+    });
+  
+    rotateUpButton.addEventListener('click', function() {
+      videoPlayer.style.transform = `rotateX(180deg)`;
+    });
+  
+    rotateDownButton.addEventListener('click', function() {
+      videoPlayer.style.transform = `rotateX(0deg)`;
+    });
+  
+    cropButton.addEventListener('click', function() {
+      // Pause the video
+      videoPlayer.pause();
+  
+      // Replace the video player with a static image
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = videoPlayer.videoWidth;
+      canvas.height = videoPlayer.videoHeight;
+      ctx.drawImage(videoPlayer, 0, 0, canvas.width, canvas.height);
+      const imageData = canvas.toDataURL('image/png');
+      cropperImage.src = imageData;
+  
+      // Show cropper container
+      cropperContainer.style.display = 'block';
+  
+      // Initialize Cropper.js
+      cropper = new Cropper(cropperImage, {
+        aspectRatio: NaN, // Allow free aspect ratio
+        viewMode: 1, // Show cropped area in original size
+        ready: function() {
+          console.log('Cropper ready');
+        }
+      });
+    });
+  
+    // Function to apply cropping and update video
+    function applyCrop() {
+      // Get cropped image data
+      const croppedImageData = cropper.getCroppedCanvas().toDataURL('image/png');
+  
+      // Convert image data back to video and update video source
+      const videoBlob = dataURItoBlob(croppedImageData);
+      const videoUrl = URL.createObjectURL(videoBlob);
+      videoPlayer.src = videoUrl;
+  
+      // Hide cropper container
+      cropperContainer.style.display = 'none';
+    }
+  
+    // Function to convert data URI to Blob
+    function dataURItoBlob(dataURI) {
+      const byteString = atob(dataURI.split(',')[1]);
+      const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+      const arrayBuffer = new ArrayBuffer(byteString.length);
+      const uint8Array = new Uint8Array(arrayBuffer);
+      for (let i = 0; i < byteString.length; i++) {
+        uint8Array[i] = byteString.charCodeAt(i);
+      }
+      return new Blob([arrayBuffer], { type: mimeString });
+    }
+  
+    // Save cropped video when save button is clicked
+    function downloadCroppedVideo() {
+      applyCrop();
+      const a = document.createElement('a');
+      a.href = videoPlayer.src;
+      a.download = 'cropped_video.mp4';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+  
+    resetButton.addEventListener('click', function() {
+      resetVideo();
+    });
+  
+    function resetVideo() {
+      videoPlayer.style.transform = 'none';
+      currentRotation = 0;
+      // Hide cropper container
+      cropperContainer.style.display = 'none';
+    }
+
+
+  </script>
+</body>
+</html>
